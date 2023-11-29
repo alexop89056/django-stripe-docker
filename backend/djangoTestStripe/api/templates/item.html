@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Page</title>
+</head>
+<body>
+
+<div style="border: 1px solid black; border-radius: 10px">
+    <a class="back_button" href="{% url 'get_items' %}" style="margin-top: 10px">< Назад</a>
+    <div style="padding: 10px 20px">
+        {% if not item %}
+            <span style="color: red; font-size: 22px; font-weight: bold">Product not found</span>
+        {% endif %}
+        <form action="{% url 'add_to_order' %}" method="POST">
+
+            <div>
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value="{{ item.id }}">
+                <div style="text-align: center; font-size: 24px; font-family: bold">
+                    {{ item.name }}
+                </div>
+                <div style="text-align: center">
+                    {{ item.description }}
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 15px">
+                    <div style="text-align: start; font-size: 24px; font-family: bold">
+                        Цена: <span class="price_unit">{{ item.price }}</span> {{ item.currency.upper }}<br>
+                        <span>Количевство</span>
+                        <select name="quantity" class="quantity_select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div style="text-align: start; font-size: 24px; font-family: bold">
+                       <button class="buy_btn">Добавить в заказ</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    .buy_btn{
+          padding: 10px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          color: white;
+          background-color: #3498db;
+          border: none;
+          border-radius: 5px;
+          text-decoration: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+    }
+
+    .back_button{
+        padding: 10px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          color: white;
+          background-color: #3498db;
+          border: none;
+          border-radius: 5px;
+          text-decoration: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    function roundToFixed(num, digits) {
+        let rounded = Math.round(num * Math.pow(10, digits)) / Math.pow(10, digits);
+        console.log(rounded)
+        return rounded;
+    }
+
+    $(document).ready(function() {
+        $('.quantity_select').on('change', function () {
+            let selectedValue = $(this).val();
+            console.log(selectedValue)
+            $('.price_unit').html(roundToFixed(parseFloat('{{ item.price }}') * selectedValue, 1));
+
+        });
+    })
+</script>
+
+</body>
+</html>
