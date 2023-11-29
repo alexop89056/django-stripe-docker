@@ -122,7 +122,7 @@ class DeleteOrderView(View):
         exist_ordered_product.delete()
         return redirect('get_ordered_items')
 
-
+@method_decorator(login_required, name='dispatch')
 class BuyItemsView(View):
     http_method_names = ['post']
 
