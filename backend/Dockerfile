@@ -10,7 +10,7 @@ WORKDIR /djangoTestStripe
 
 # Установите зависимости Python
 COPY ./requirements.txt /djangoTestStripe/
-COPY ./main.py /djangoTestStripe/
+# COPY ./main.py /djangoTestStripe/
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Скопируйте все файлы проекта в рабочую директорию
