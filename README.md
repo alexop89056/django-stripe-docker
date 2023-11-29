@@ -7,9 +7,9 @@ This project is a basic template based on Django Docker services to provide conn
 ## Technologies that have been used
 ![Django](https://img.shields.io/badge/django-darkgreen?style=for-the-badge&logo=django&logoColor=white&labelColor=darkgreen)
 ![Gunicorn](https://img.shields.io/badge/gunicorn-green?style=for-the-badge&logo=gunicorn&logoColor=white&labelColor=green)
-![Nginx](https://img.shields.io/badge/nginx-darkgreen?style=for-the-badge&logo=django&logoColor=white&labelColor=darkgreen)
+![Nginx](https://img.shields.io/badge/nginx-darkgreen?style=for-the-badge&logo=nginx&logoColor=white&labelColor=darkgreen)
 ![PostgresSQL](https://img.shields.io/badge/postgresql-blue?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-5b5bfe?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-5b5bfe?style=for-the-badge&logo=docker&logoColor=white)
 
 
 ## Installation
