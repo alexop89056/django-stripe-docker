@@ -13,7 +13,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: gunicorn djangoTestStripe.wsgi:application -w 4 --bind 0.0.0.0:8000
+    # command: gunicorn djangoTestStripe.wsgi:application -w 4 --bind 0.0.0.0:8000
+    command: bash start_app.sh
     ports:
       - "8000:8000"
     depends_on:
